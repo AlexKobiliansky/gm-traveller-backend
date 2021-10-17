@@ -3,12 +3,14 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const app = express();
 const pinRoutes = require('./routes/pins');
+const userRoutes = require('./routes/users');
 
 dotenv.config();
 app.use(express.json());
 const PORT = process.env.PORT || 4000;
 
 app.use('/pins', pinRoutes);
+app.use('/user', userRoutes);
 
 async function start() {
   try {
