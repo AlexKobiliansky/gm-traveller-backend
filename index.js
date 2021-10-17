@@ -2,9 +2,13 @@ const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const app = express();
+const pinRoutes = require('./routes/pins');
 
 dotenv.config();
+app.use(express.json());
 const PORT = process.env.PORT || 4000;
+
+app.use('/pins', pinRoutes);
 
 async function start() {
   try {
